@@ -122,14 +122,14 @@ alias pip='pip3'
 export PATH=$PATH:~/bin
 
 # anyenv setting
-export PATH="$HOME/.anyenv/bin:$PATH"
-eval "$(anyenv init -)"
+#export PATH="$HOME/.anyenv/bin:$PATH"
+#eval "$(anyenv init -)"
 
 ## anyenv-nodenv setting
 ## npmでグローバルインストールしたvue-cliのパスが通ってなかったので追加．
-#export PATH="$HOME/.anyenv/nodenv/bin/:$PATH"
-#export PATH="${HOME}/.anyenv/bin:$PATH"
-#eval"$(anyenv init -)"
+export PATH="$HOME/.anyenv/nodenv/bin/:$PATH"
+export PATH="${HOME}/.anyenv/bin:$PATH"
+eval "$(anyenv init -)"
 
 # Setting for WSL2
 if [[ "$(uname -r)" == *microsoft* ]]; then
