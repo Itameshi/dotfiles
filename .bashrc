@@ -135,3 +135,5 @@ eval "$(anyenv init -)"
 if [[ "$(uname -r)" == *microsoft* ]]; then
   export PATH=$PATH:'/mnt/c/Users/itameshi/AppData/Local/Programs/Microsoft VS Code/bin'
 fi
+export PATH="${HOME}/.anyenv/bin:$PATH"
+eval"$(anyenv init -)"
