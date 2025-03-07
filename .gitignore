@@ -1,1 +1,8 @@
 .vim/plugged
+
+.config/anyenv/
+.config/gcloud/
+.config/atcoder-cli-nodejs/
+.config/configstore/
+.config/create-next-app-nodejs/
+.config/simple-update-notifier/
