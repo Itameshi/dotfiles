@@ -127,13 +127,18 @@ export PATH=$PATH:~/bin
 
 ## anyenv-nodenv setting
 ## npmでグローバルインストールしたvue-cliのパスが通ってなかったので追加．
-export PATH="$HOME/.anyenv/nodenv/bin/:$PATH"
-export PATH="${HOME}/.anyenv/bin:$PATH"
+export PATH="${PATH}:${HOME}/.anyenv/nodenv/bin/"
+export PATH="${PATH}:${HOME}/.anyenv/bin"
 eval "$(anyenv init -)"
 
 # Setting for WSL2
 if [[ "$(uname -r)" == *microsoft* ]]; then
-  export PATH=$PATH:'/mnt/c/Users/itameshi/AppData/Local/Programs/Microsoft VS Code/bin'
+  export PATH="${PATH}:/mnt/c/Users/itameshi/AppData/Local/Programs/Microsoft VS Code/bin"
 fi
-export PATH="${HOME}/.anyenv/bin:$PATH"
+export PATH="${PATH}:${HOME}/.anyenv/bin"
 eval"$(anyenv init -)"
+
+# tfenv setting
+export PATH="${PATH}:${HOME}/.tfenv/bin"
+
+#export PS1="@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$"
