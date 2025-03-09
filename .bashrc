@@ -119,6 +119,8 @@ fi
 #self settings
 alias python='python3'
 alias pip='pip3'
+alias vi="nvim"
+alias nv="nvim"
 export PATH=$PATH:~/bin
 
 # anyenv setting
@@ -141,4 +143,6 @@ eval"$(anyenv init -)"
 # tfenv setting
 export PATH="${PATH}:${HOME}/.tfenv/bin"
 
+# neovim setting
+export PATH="${PATH}:/snap/bin/nvim"
 #export PS1="@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$"
