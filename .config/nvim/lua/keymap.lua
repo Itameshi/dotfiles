@@ -6,7 +6,7 @@ map("n", "<S-t>", ":NvimTreeToggle<CR>", opts)
 
 -- tab操作
 map("n", "<C-t>", ":tabnew<CR>", opts)
-map("n", "<C-x>", ":tabclose<CR>", opts)
+map("n", "<C-z>", ":tabclose<CR>", opts)
 map("n", "<C-n>", ":tabnext<CR>", opts)
 map("n", "<C-b>", ":tabprevious<CR>", opts)
 
