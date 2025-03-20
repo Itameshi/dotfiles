@@ -36,6 +36,12 @@ vim.api.nvim_create_autocmd("TabNewEntered", {
   end,
 })
 
+-- set tarminal size
+vim.api.nvim_create_autocmd("TermOpen", {
+    pattern = "*",
+    command = "resize 10"
+})
+
 -- Setup lazy.nvim
 require("lazy").setup({
   {
