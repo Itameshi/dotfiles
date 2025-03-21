@@ -39,7 +39,7 @@ vim.api.nvim_create_autocmd("TabNewEntered", {
 -- set tarminal size
 vim.api.nvim_create_autocmd("TermOpen", {
     pattern = "*",
-    command = "resize 10"
+    command = "resize 15"
 })
 
 -- Setup lazy.nvim
@@ -107,6 +107,7 @@ require("lazy").setup({
     run = ":TSUpdate",
     config = function()
       require("nvim-treesitter.configs").setup ({
+        ensure_installed = {"c", "python", "lua", "c_sharp", "javascript"},
         highlight = {
           enable = true,
           additional_vim_regex_highlighting = false,
@@ -207,6 +208,21 @@ require("lazy").setup({
       vim.opt.sidescrolloff = 100
       vim.opt.winblend = 20
     end,
+  },
+  {
+      -- https://github.com/dense-analysis/ale?tab=readme-ov-file
+      'dense-analysis/ale',
+      config = function()
+          -- Configuration goes here.
+          local g = vim.g
+
+          --g.ale_ruby_rubocop_auto_correct_all = 1
+
+          --g.ale_linters = {
+          --    ruby = {'rubocop', 'ruby'},
+          --    lua = {'lua_language_server'}
+          --}
+      end
   },
   -- Configure any other settings here. See the documentation for more details.
   -- colorscheme that will be used when installing plugins.
