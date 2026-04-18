@@ -27,7 +27,6 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
-
 -- autocmd
 -- 新しいタブを開いたとき、同時にファイラーも開く
 vim.api.nvim_create_autocmd("TabNewEntered", {
@@ -54,6 +53,7 @@ require("lazy").setup({
         },
         filters = {
           dotfiles = true,
+          git_ignored = false,
         },
         view = {
           adaptive_size = true,
@@ -76,7 +76,7 @@ require("lazy").setup({
     transparent = true,
     code_style = {
       comments  = "italic",
-      keyworks  = "none",
+      keywords  = "none",
       functions = "none",
       strings = "none",
       variables = "none"
@@ -115,29 +115,30 @@ require("lazy").setup({
       })
     end,
   },
-  {
-   "xiyaowong/transparent.nvim",
-    lazy = false,
-    config = function()
-      require("transparent").setup({
-        groups = { -- グループを手動設定
-            "Normal", "NormalNC", "Comment", "Constant", "Special", "Identifier",
-            "Statement", "PreProc", "Type", "Underlined", "Todo", "String", "Function",
-            "Conditional", "Repeat", "Operator", "Structure", "LineNr", "NonText",
-            "SignColumn", "CursorLineNr", "EndOfBuffer"
-        },
-        extra_groups = {
-          "NormalFloat", "NvimTreeNormal", "NvimTreeVertSplit", "NvimTree",
-          "NvimTreeNormalNC","NeominimapNormal",
-        },
-      })
-    end,
-  },
+  --{
+  -- "xiyaowong/transparent.nvim",
+  --  lazy = false,
+  --  config = function()
+  --    require("transparent").setup({
+  --      groups = { -- グループを手動設定
+  --          "Normal", "NormalNC", "Comment", "Constant", "Special", "Identifier",
+  --          "Statement", "PreProc", "Type", "Underlined", "Todo", "String", "Function",
+  --          "Conditional", "Repeat", "Operator", "Structure", "LineNr", "NonText",
+  --          "SignColumn", "CursorLineNr", "EndOfBuffer"
+  --      },
+  --      extra_groups = {
+  --        "NormalFloat", "NvimTreeNormal", "NvimTreeVertSplit", "NvimTree",
+  --        "NvimTreeNormalNC","NeominimapNormal",
+  --      },
+  --    })
+  --  end,
+  --},
   {
     "iamcco/markdown-preview.nvim",
-    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+    --build = function() vim.fn["mkdp#util#install"]() end,
+    build = "cd app && npm install",
     ft = { "markdown" },
-    build = function() vim.fn["mkdp#util#install"]() end,
+    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
   },
   {
     -- https://github.com/lewis6991/gitsigns.nvim
@@ -195,20 +196,20 @@ require("lazy").setup({
     }
     end
   },
-  {
-    -- https://github.com/Isrothy/neominimap.nvim
-    "Isrothy/neominimap.nvim",
-    version = "v3.*.*",
-    enabled = true,
-    lazy = false,
-    highlight = "NeominimapNormal",
-    init = function()
-      -- The following options arre recommended when layout == "float"
-      vim.opt.wrap = false
-      vim.opt.sidescrolloff = 100
-      vim.opt.winblend = 20
-    end,
-  },
+--  {
+--    -- https://github.com/Isrothy/neominimap.nvim
+--    "Isrothy/neominimap.nvim",
+--    version = "v3.*.*",
+--    enabled = true,
+--    lazy = false,
+--    highlight = "NeominimapNormal",
+--    init = function()
+--      -- The following options arre recommended when layout == "float"
+--      vim.opt.wrap = false
+--      vim.opt.sidescrolloff = 100
+--      vim.opt.winblend = 20
+--    end,
+--  },
   {
       -- https://github.com/dense-analysis/ale?tab=readme-ov-file
       'dense-analysis/ale',
@@ -224,11 +225,45 @@ require("lazy").setup({
           --}
       end
   },
+  {
+    -- https://github.com/neovim/nvim-lspconfig
+    -- LSP 本体
+    "neovim/nvim-lspconfig",
+  },
+  {
+    -- https://github.com/mason-org/mason.nvim
+    "mason-org/mason.nvim",
+    opts = {}
+  },
+  --{
+  --  "williamboman/mason-lspconfig.nvim",
+  --  config = function()
+  --    require("mason").setup()
+  --    require("mason-lspconfig").setup({
+  --      ensure_installed = { "tsserver" },
+  --    })
+
+  --    local lspconfig = require("lspconfig")
+  --    require("mason-lspconfig").setup_handlers({
+  --      function(server_name)
+  --        lspconfig[server_name].setup({
+  --          on_attach = function(_, bufnr)
+  --            local opts = { buffer = bufnr }
+  --            vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+  --            vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+  --            vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
+  --            vim.keymap.set("n", "<leader>f", vim.lsp.buf.format, opts)
+  --          end,
+  --        })
+  --      end,
+  --    })
+  --  end,
+  --},
   -- Configure any other settings here. See the documentation for more details.
   -- colorscheme that will be used when installing plugins.
-  --install = { colorscheme = { "habamax" } },
+  install = { colorscheme = { "habamax" } },
   -- automatically check for plugin updates
-  checker = { enabled = true },
+   checker = { enabled = true },
 })
 
 -- Transparent background
@@ -247,4 +282,4 @@ vim.cmd [[
 --vim.g.loaded_netrw = 1
 --vim.g.loaded_netrwPlugin = 1
 --vim.opt.termguicolors = true
-
+vim.g.mkdp_browser = "C:\\Users\\shogo\\AppData\\Local\\Programs\\Opera\\opera.exe"

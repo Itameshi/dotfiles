@@ -1,0 +1,22 @@
+model = "gpt-5.4"
+approval_policy = "on-request"
+sandbox_mode = "read-only"
+web_search = "disabled"
+model_reasoning_effort = "high"
+personality = "none"
+
+[shell_environment_policy]
+include_only = ["PATH", "HOME", "USER", "SHELL"]
+
+[features]
+fast_mode = true
+multi_agent = false
+memories = false
+shell_tool = true
+shell_snapshot = false
+smart_approvals = false
+codex_hooks = false
+undo = false
+
+[plugins."github@openai-curated"]
+enabled = true

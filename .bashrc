@@ -63,6 +63,7 @@ else
 fi
 unset color_prompt force_color_prompt
 
+
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
 xterm*|rxvt*)
@@ -146,3 +147,15 @@ export PATH="${PATH}:${HOME}/.tfenv/bin"
 # neovim setting
 export PATH="${PATH}:/snap/bin/nvim"
 #export PS1="@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$"
+
+# fly.io
+export FLYCTL_INSTALL="/home/itameshi/.fly"
+export PATH="$FLYCTL_INSTALL/bin:$PATH"
+
+# hide username because of  stream 
+#PS1='${debian_chroot:+($debian_chroot)}STREAMING_NOW:\[\033[01;34m\]\w\[\033[00m\]\$ '
+#PS1='${debian_chroot:+($debian_chroot)}STREAMING_NOW:\[\033[01;34m\]\w\[\033[00m\]\$ '
+PS1='\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]Load Escapism@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+
+# WSL VSCode
+alias nvim="/home/itameshi/.wsl-nvim-wrapper.sh"

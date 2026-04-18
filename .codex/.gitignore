@@ -1,0 +1,17 @@
+auth.json
+cache/
+history.jsonl
+installation_id
+log/
+log*
+memories/
+models_cache.json
+plugins/
+sessions/
+shell_snapshots/
+state*
+tmp
+vasion.json
+.tmp/
+skills/
+.personality_migration
