@@ -3,13 +3,13 @@ approval_policy = "on-request"
 sandbox_mode = "read-only"
 web_search = "disabled"
 model_reasoning_effort = "high"
-personality = "none"
+personality = "friendly"
 
 [shell_environment_policy]
 include_only = ["PATH", "HOME", "USER", "SHELL"]
 
 [features]
-fast_mode = true
+fast_mode = false
 multi_agent = false
 memories = false
 shell_tool = true
