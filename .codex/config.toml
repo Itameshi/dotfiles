@@ -1,4 +1,4 @@
-model = "gpt-5.4"
+model = "gpt-5.5"
 approval_policy = "on-request"
 sandbox_mode = "read-only"
 web_search = "disabled"
@@ -20,3 +20,6 @@ undo = false
 
 [plugins."github@openai-curated"]
 enabled = true
+
+[projects."/home/itameshi/dev/lookie"]
+trust_level = "trusted"
