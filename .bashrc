@@ -159,3 +159,5 @@ PS1='\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]Load E
 
 # WSL VSCode
 alias nvim="/home/itameshi/.wsl-nvim-wrapper.sh"
+
+export PATH="$SHOE/.asdf/bin:$HOME/.asdf/shims:$PATH"
